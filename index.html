@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#e80062"><title>Moda Marian | Tu tienda de moda</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#fff7fa;color:#24151c;font-family:system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:white;position:sticky;top:0;z-index:3;box-shadow:0 2px 12px #0001;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.brand{font-size:24px;font-weight:900;color:#e80062;letter-spacing:-1px}nav a{margin-left:12px;color:#222;text-decoration:none;font-weight:650;font-size:14px}
+.hero{text-align:center;padding:48px 18px;background:radial-gradient(circle at 80% 10%,#ffc3db,transparent 50%),linear-gradient(130deg,#fff,#ffe3ef)}
+.hero h1{font-size:clamp(40px,8vw,78px);line-height:1.02;margin:12px auto;color:#e80062}.hero p{font-size:19px;max-width:570px;margin:20px auto}
+.btn{display:inline-block;border:0;border-radius:40px;background:#e80062;color:white;padding:14px 24px;text-decoration:none;font-weight:800;cursor:pointer}.btn:hover{background:#b8004e}
+.secondary{background:white;color:#d00059;border:2px solid #e80062}section{max-width:1100px;margin:auto;padding:42px 20px}h2{text-align:center;font-size:32px;margin:0 0 26px}
+.categories{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:30px}.categories span{background:#ffe1ed;border-radius:30px;padding:10px 17px;font-weight:700}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}.product{background:white;border-radius:22px;overflow:hidden;box-shadow:0 8px 24px #65002b12}
+.product img{width:100%;height:380px;object-fit:cover;object-position:center}.info{padding:20px}.info h3{margin:0 0 8px}.price{color:#e80062;font-weight:900;font-size:29px;margin:10px 0}
+select,input{font:inherit;padding:10px;border:1px solid #e7cbd7;border-radius:10px;background:#fff;width:100%;margin:6px 0 10px}.product .btn{width:100%;text-align:center}
+.about{background:#fff0f6;text-align:center;border-radius:26px}.about p{max-width:650px;margin:12px auto 22px;line-height:1.7}.about img{max-width:260px;width:100%;border-radius:18px;margin:14px auto}
+.contact{text-align:center}.wa{position:fixed;right:18px;bottom:18px;background:#20b858;color:white;text-decoration:none;border-radius:50px;padding:14px 18px;box-shadow:0 4px 18px #0003;font-weight:800;z-index:4}
+.cart-toggle{background:#fff;color:#d00059;border:2px solid #e80062;border-radius:30px;padding:9px 14px;font-weight:800;cursor:pointer}
+.cart{display:none;position:fixed;z-index:5;inset:0;background:#0008;align-items:flex-end;justify-content:center}.cart.open{display:flex}.cart-panel{background:white;width:min(100%,600px);max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:22px}
+.cart-head{display:flex;align-items:center;justify-content:space-between}.cart-head h2{text-align:left;margin:0}.close{border:0;background:#ffe1ed;border-radius:50%;width:38px;height:38px;font-size:22px}
+.cart-row{display:grid;grid-template-columns:1fr auto;gap:10px;padding:12px 0;border-bottom:1px solid #f0dbe4}.cart-row small{display:block;color:#775d69}.qty{display:flex;align-items:center;gap:8px}.qty button{border:0;background:#ffe1ed;border-radius:8px;padding:5px 10px}
+.total{font-size:22px;font-weight:900;color:#e80062;display:flex;justify-content:space-between;padding:18px 0}.note{font-size:13px;color:#775d69;line-height:1.5}.message{padding:10px;border-radius:10px;background:#fff0f6;margin:10px 0}
+footer{background:#2b1520;color:white;text-align:center;padding:28px 15px;font-size:14px}
+@media(max-width:560px){header{padding:12px}.brand{font-size:20px}nav a{font-size:12px;margin-left:5px}.product img{height:340px}.hero{padding:35px 15px}}
+</style>
+</head>
+<body>
+<header><div class="brand">♡ MODA MARIAN</div><nav><a href="#productos">Productos</a><a href="#nosotras">Nosotras</a><a href="#contacto">Contacto</a></nav><button class="cart-toggle" onclick="openCart()">🛍️ Carrito (<span id="cart-count">0</span>)</button></header>
+<main>
+<div class="hero"><div style="font-size:30px">💕 ✨ 🛍️</div><h1>MODA MARIAN</h1><p>Moda, complementos y mucho más. ¡Tus favoritos a precios que enamoran!</p><a class="btn" href="#productos">Ver productos ↓</a></div>
+<section id="productos"><h2>💗 Nuestras novedades</h2><div class="categories"><span>Moda mujer</span><span>Tallas grandes</span><span>Infantil</span><span>Hogar</span><span>Complementos</span></div>
+<div class="products">
+<article class="product" data-name="Pantalones de algodón" data-price="6">
+<img src="pantalones.png" alt="Pantalones de algodón">
+<div class="info"><h3>Pantalones de algodón</h3><div>Tallas S · M · L</div><div class="price">6 €</div><label for="size-pants">Talla</label><select id="size-pants"><option>S</option><option>M</option><option>L</option></select><button class="btn" onclick="addToCart('Pantalones de algodón',6,document.getElementById('size-pants').value)">Añadir al carrito</button><a class="btn secondary" style="margin-top:8px" target="_blank" rel="noopener" href="https://wa.me/34664353377?text=Hola%20Moda%20Marian%2C%20quiero%20consultar%20los%20pantalones%20de%20algod%C3%B3n">Consultar por WhatsApp</a></div></article>
+<article class="product" data-name="Leggings de algodón" data-price="6">
+<img src="leggings.png" alt="Leggings de algodón">
+<div class="info"><h3>Leggings de algodón</h3><div>Tallas S · M · L</div><div class="price">6 €</div><label for="size-leggings">Talla</label><select id="size-leggings"><option>S</option><option>M</option><option>L</option></select><button class="btn" onclick="addToCart('Leggings de algodón',6,document.getElementById('size-leggings').value)">Añadir al carrito</button><a class="btn secondary" style="margin-top:8px" target="_blank" rel="noopener" href="https://wa.me/34664353377?text=Hola%20Moda%20Marian%2C%20quiero%20consultar%20los%20leggings">Consultar por WhatsApp</a></div></article>
+</div><p style="text-align:center;margin-top:24px;color:#775d69">Estamos añadiendo novedades. Consulta disponibilidad antes de comprar.</p></section>
+<section id="nosotras" class="about"><h2>Gracias por acompañarnos 💕</h2><img src="gracias.png" alt="Agradecimiento de Moda Marian a sus clientas"><p>¡Ya vamos camino de 9 años! Gracias a todas nuestras clientas de la tienda física y online. Vuestro apoyo y confianza hacen posible que sigamos adelante con tanta ilusión.</p><a class="btn secondary" href="https://wa.me/34664353377?text=Hola%20Moda%20Marian">Habla con nosotras</a></section>
+<section id="contacto" class="contact"><h2>📲 ¿Te gusta algo?</h2><p>Escríbenos para consultar tallas, disponibilidad y pedidos.</p><p><strong>WhatsApp: 664 353 377</strong></p><p>📍 Güéjar Sierra, Granada</p><a class="btn" href="https://wa.me/34664353377" target="_blank" rel="noopener">Abrir WhatsApp</a></section>
+</main><footer>© Moda Marian · Hecho con cariño ♡<br>Los gastos y condiciones de envío deben confirmarse antes de activar las ventas online.</footer><a class="wa" href="https://wa.me/34664353377" target="_blank" rel="noopener">☏ WhatsApp</a>
+<div class="cart" id="cart" onclick="if(event.target.id==='cart')closeCart()"><div class="cart-panel"><div class="cart-head"><h2>🛍️ Tu carrito</h2><button class="close" onclick="closeCart()">×</button></div><div id="cart-items"></div><div class="total"><span>Total productos</span><span id="cart-total">0,00 €</span></div><div class="message" id="cart-message">El pago online todavía necesita que conectemos tu cuenta real de Stripe y configuremos los envíos. No se realizará ningún cobro desde esta versión.</div><button class="btn" style="width:100%" onclick="checkout()">Continuar al pago</button><p class="note">Si el pago aún no está configurado, podrás enviar el pedido por WhatsApp. No introduzcas datos bancarios en esta página.</p><a class="btn secondary" style="width:100%;text-align:center" href="#" onclick="sendWhatsAppOrder();return false">Enviar pedido por WhatsApp</a></div></div>
+<script>
+let cartItems=[];
+function addToCart(name,price,size){const found=cartItems.find(x=>x.name===name&&x.size===size);if(found)found.qty++;else cartItems.push({name,price,size,qty:1});renderCart();document.getElementById('cart-message').textContent='Producto añadido. Puedes seguir comprando o enviar el pedido por WhatsApp.';openCart();}
+function renderCart(){document.getElementById('cart-count').textContent=cartItems.reduce((s,x)=>s+x.qty,0);document.getElementById('cart-total').textContent=cartItems.reduce((s,x)=>s+x.price*x.qty,0).toLocaleString('es-ES',{style:'currency',currency:'EUR'});const el=document.getElementById('cart-items');if(!cartItems.length){el.innerHTML='<p>Tu carrito está vacío. Añade algún producto para empezar.</p>';return;}el.innerHTML=cartItems.map((x,i)=>`<div class="cart-row"><div><strong>${x.name}</strong><small>Talla ${x.size} · ${x.price.toFixed(2).replace('.',',')} € cada uno</small></div><div class="qty"><button onclick="changeQty(${i},-1)">−</button><strong>${x.qty}</strong><button onclick="changeQty(${i},1)">+</button><button onclick="removeItem(${i})" aria-label="Eliminar">🗑️</button></div></div>`).join('');}
+function changeQty(i,n){cartItems[i].qty+=n;if(cartItems[i].qty<=0)cartItems.splice(i,1);renderCart()}
+function removeItem(i){cartItems.splice(i,1);renderCart()}
+function openCart(){document.getElementById('cart').classList.add('open');renderCart()}
+function closeCart(){document.getElementById('cart').classList.remove('open')}
+function sendWhatsAppOrder(){if(!cartItems.length){alert('Tu carrito está vacío.');return;}let msg='Hola Moda Marian, quiero hacer este pedido:%0A'+cartItems.map(x=>`- ${x.name}, talla ${x.size}, cantidad ${x.qty}: ${(x.price*x.qty).toFixed(2)} €`).join('%0A')+'%0ATotal de productos: '+cartItems.reduce((s,x)=>s+x.price*x.qty,0).toFixed(2)+' €%0A¿Me confirmáis disponibilidad y envío?';window.open('https://wa.me/34664353377?text='+msg,'_blank','noopener')}
+async function checkout(){if(!cartItems.length){alert('Añade algún producto primero.');return;}const message=document.getElementById('cart-message');message.textContent='Comprobando la configuración segura de pago…';try{const r=await fetch('/.netlify/functions/create-checkout-session',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:cartItems})});const data=await r.json();if(r.ok&&data.url){window.location.href=data.url;return;}message.textContent=data.error||'El pago online aún no está configurado. Usa “Enviar pedido por WhatsApp” para consultar tu pedido.';}catch(e){message.textContent='El pago online aún no está configurado. Usa “Enviar pedido por WhatsApp” para consultar tu pedido.';}}
+renderCart();
+</script>
+</body></html>
